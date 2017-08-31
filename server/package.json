@@ -1,4 +1,10 @@
 {
+  "name": "school_personal_blog",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "engines": {
+    "node": "7.6.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
@@ -16,6 +22,7 @@
     "slug": "^0.9.1"
   },
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "NODE_ENV=production node src/index.js"
   }
 }
