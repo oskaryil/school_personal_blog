@@ -10,7 +10,9 @@ const authenticate = async (req, res, next) => {
     req.token = token;
     next();
   } catch (err) {
-    return res.status(401).send({ message: "Unauthorized", error: err });
+    return res
+      .status(401)
+      .send({ message: "Unauthorized", error: err.message });
   }
 };
 
