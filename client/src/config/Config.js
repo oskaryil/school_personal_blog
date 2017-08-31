@@ -5,7 +5,7 @@ const devConfig = {
 const defaultConfig = {};
 
 const prodConfig = {
-  apiURL: "http://localhost:4000/api"
+  apiURL: "https://school-blog.herokuapp.com/api"
 };
 
 const envConfig = env => {
