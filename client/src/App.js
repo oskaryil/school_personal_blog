@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Router from "./routes";
-import ContentContainer from "./containers/ContentContainer";
 import logo from "./logo.svg";
 import "./App.css";
 
