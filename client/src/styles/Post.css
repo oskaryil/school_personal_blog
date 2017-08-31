@@ -1,0 +1,27 @@
+.post {
+  max-width: 60rem;
+}
+
+.post-title {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.post-body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.post-footer > p {
+  display: inline-block;
+}
+
+.post-date {
+  padding-left: 0.3rem;
+}
+
+.bold {
+  font-weight: 900;
+}
