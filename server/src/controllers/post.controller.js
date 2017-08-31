@@ -45,8 +45,24 @@ const getAllPosts = async (req, res) => {
   }
 };
 
+const deletePost = async (req, res) => {
+  const { postId } = _.pick(req.body, ["postId"]);
+  try {
+    const deletedPost = await Post.findByIdAndRemove(postId);
+    if (!deletedPost) {
+      throw new Error("No post found with that _id found");
+    }
+    return res
+      .status(200)
+      .send({ success: true, message: "Deleted post", deletedPost });
+  } catch (err) {
+    return res.status(400).send({ success: false, error: err.message });
+  }
+};
+
 module.exports = {
   validation,
   newPost,
+  deletePost,
   getAllPosts
 };
