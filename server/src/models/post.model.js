@@ -23,13 +23,20 @@ const PostSchema = new mongoose.Schema(
       required: true
     },
     author: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true
     },
     tags: {
       type: Array,
       required: false
-    }
+    },
+    comments: [
+      {
+        text: String,
+        postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+      }
+    ]
   },
   { timestamps: true }
 );

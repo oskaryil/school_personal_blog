@@ -22,7 +22,16 @@
     "slug": "^0.9.1"
   },
   "scripts": {
-    "dev": "NODE_ENV=development nodemon src/index.js",
-    "start": "NODE_ENV=production node src/index.js"
+    "dev": "NODE_ENV=development nodemon dist/index.bundle.js",
+    "dev:build": "webpack -w",
+    "start": "NODE_ENV=production node dist/index.bundle.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.5.5",
+    "webpack-node-externals": "^1.6.0"
   }
 }

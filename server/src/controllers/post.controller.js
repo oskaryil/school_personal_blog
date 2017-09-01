@@ -16,7 +16,7 @@ const newPost = async (req, res) => {
   const data = _.pick(req.body, ["title", "body", "tagLine", "tags"]);
 
   try {
-    data.author = req.user.name;
+    data.author = req.user._id;
     const newPost = new Post(data);
     await newPost.save();
     res
@@ -35,7 +35,7 @@ const newPost = async (req, res) => {
 
 const getAllPosts = async (req, res) => {
   try {
-    const posts = await Post.find({});
+    const posts = await Post.find({}).populate("author");
     return res.status(200).send(posts.reverse());
   } catch (err) {
     return res.status(500).send({

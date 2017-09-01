@@ -20,6 +20,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    profileImg: {
+      type: String,
+      required: false,
+      default:
+        "https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png"
+    },
     accessToken: {
       type: String,
       required: false
@@ -31,10 +37,22 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.methods.toJSON = function() {
-  const user = this;
-  const userObject = user.toObject();
+  return {
+    _id: this._id,
+    name: this.name,
+    profileImg: this.profileImg,
+    username: this.username
+  };
+};
 
-  _.pick(userObject, ["name", "username", "accessToken"]);
+UserSchema.methods.toAuthJSON = function() {
+  return {
+    _id: this._id,
+    name: this.name,
+    profileImg: this.profileImg,
+    username: this.username,
+    accessToken: this.accessToken
+  };
 };
 
 UserSchema.methods.generateAccessToken = async function() {
