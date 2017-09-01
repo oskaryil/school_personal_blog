@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon dist/index.bundle.js",
     "dev:build": "webpack -w",
-    "start": "NODE_ENV=production node dist/index.bundle.js"
+    "start": "NODE_ENV=production node src/index.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
