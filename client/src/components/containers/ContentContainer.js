@@ -1,15 +1,24 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { PulseLoader } from "halogen";
+import Header from "../common/Header";
 import "../../App.css";
-
-export default class ContentContainer extends Component {
+class ContentContainer extends Component {
   render() {
     if (this.props.loading) {
-      return <h1>Loading</h1>;
+      return <PulseLoader size="20px" />;
     }
     return (
-      <div className="App-content">
-        {this.props.children}
+      <div>
+        <Header user={this.props.auth.user} />
+        <div className="App-content">
+          {this.props.children}
+        </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => ({ auth: state.auth });
+
+export default connect(mapStateToProps)(ContentContainer);

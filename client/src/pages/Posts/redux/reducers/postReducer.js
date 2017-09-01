@@ -7,7 +7,8 @@ import {
 const INITIAL_STATE = {
   posts: [],
   fetching: false,
-  error: ""
+  error: "",
+  lastFetched: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -15,7 +16,13 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_POSTS:
       return { ...state, fetching: true };
     case FETCH_POSTS_SUCCESS:
-      return { ...state, fetching: false, posts: action.payload, error: "" };
+      return {
+        ...state,
+        fetching: false,
+        posts: action.payload,
+        error: "",
+        lastFetched: new Date()
+      };
     case FETCH_POSTS_FAIL:
       return { ...state, fetching: false, error: action.error || "" };
     default:

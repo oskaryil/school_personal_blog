@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import store from "./store";
 import Router from "./routes";
+import Header from "./components/common/Header";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -8,17 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h1 className="text-center text-bold">Oskars blogg</h1>
-        </div>
         <Router />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.posts
-});
+const mapStateToProps = state => ({ auth: state.auth });
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps)(App);

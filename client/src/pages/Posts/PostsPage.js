@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import moment from "moment";
 import ContentContainer from "../../components/containers/ContentContainer";
 import Post from "../../components/Post";
 import { fetchPosts } from "./redux/actions/postActions";
@@ -8,7 +9,16 @@ class PostPage extends Component {
   componentWillMount() {}
 
   async componentDidMount() {
-    this.props.fetchPosts();
+    const { lastFetched } = this.props.posts;
+    if (lastFetched !== null) {
+      console.log(moment().subtract(lastFetched, new Date()).seconds());
+      // console.log(new Date() - lastFetched);
+      if (new Date() - lastFetched > 600) {
+        this.props.fetchPosts();
+      }
+    } else {
+      this.props.fetchPosts();
+    }
   }
 
   renderPosts() {
@@ -28,11 +38,8 @@ class PostPage extends Component {
 
   render() {
     const { error } = this.props.posts.error;
-    if (this.props.posts.fetching) {
-      return <h1>Loading</h1>;
-    }
     return (
-      <ContentContainer>
+      <ContentContainer loading={this.props.posts.fetching}>
         {this.renderPosts()}
         {this.props.posts.error
           ? <h3>
