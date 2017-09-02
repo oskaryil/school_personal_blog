@@ -76,7 +76,7 @@ UserSchema.methods.generateAccessToken = async function() {
 
   user.accessToken = accessToken;
   await user.save();
-  return accessToken;
+  return user.toAuthJSON();
 };
 
 UserSchema.statics.findByCredentials = async function(username, password) {

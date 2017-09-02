@@ -47,7 +47,8 @@ PostSchema.methods.toJSON = function() {
     title: this.title,
     body: this.body,
     author: this.author,
-    createdAt: this.createdAt
+    createdAt: this.createdAt,
+    slug: this.slug
   };
 };
 

@@ -15,12 +15,11 @@ const signup = async (req, res, next) => {
   const data = _.pick(req.body, ["username", "password", "name"]);
   try {
     const newUser = new User(data);
-    let accessToken = await newUser.generateAccessToken();
-    res.status(201).header("Authorization", accessToken).send({
+    let user = await newUser.generateAccessToken();
+    res.status(201).header("Authorization", user.accessToken).send({
       success: true,
       message: "New user created",
-      username: data.username,
-      accessToken
+      user: user
     });
   } catch (err) {
     console.log(err);

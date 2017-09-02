@@ -60,9 +60,20 @@ const deletePost = async (req, res) => {
   }
 };
 
+const getPostsByUserId = async (req, res) => {
+  const { userId } = _.pick(req.query, ["userId"]);
+  try {
+    const posts = await Post.find({ author: userId });
+    res.status(200).send({ posts });
+  } catch (err) {
+    res.status(400).send({ success: false, error: err.message });
+  }
+};
+
 module.exports = {
   validation,
   newPost,
   deletePost,
-  getAllPosts
+  getAllPosts,
+  getPostsByUserId
 };
