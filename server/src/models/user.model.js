@@ -29,6 +29,10 @@ const UserSchema = new mongoose.Schema(
     accessToken: {
       type: String,
       required: false
+    },
+    admin: {
+      type: Boolean,
+      default: false
     }
   },
   {
@@ -42,7 +46,7 @@ UserSchema.methods.toJSON = function() {
     name: this.name,
     profileImg: this.profileImg,
     username: this.username,
-    posts: this.posts
+    admin: this.admin
   };
 };
 
@@ -52,7 +56,8 @@ UserSchema.methods.toAuthJSON = function() {
     name: this.name,
     profileImg: this.profileImg,
     username: this.username,
-    accessToken: this.accessToken
+    accessToken: this.accessToken,
+    admin: this.admin
   };
 };
 
