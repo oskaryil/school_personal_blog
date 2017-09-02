@@ -17,8 +17,9 @@ class PostPage extends Component {
         this.props.fetchPosts();
       }
     } else {
-      this.props.fetchPosts();
+      // this.props.fetchPosts();
     }
+    this.props.fetchPosts();
   }
 
   renderPosts() {

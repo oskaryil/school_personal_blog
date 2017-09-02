@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ContentContainer from "../../components/containers/ContentContainer";
 import PostsList from "./components/PostsList";
-import { fetchUserProfile } from "./redux/actions/userProfileActions";
+import {
+  fetchUserProfile,
+  fetchPostsByUser
+} from "./redux/actions/userProfileActions";
 import "./styles/userProfile.css";
 
 class UserProfile extends Component {
@@ -10,9 +13,10 @@ class UserProfile extends Component {
     super(props);
   }
 
-  componentWillMount() {
+  async componentWillMount() {
     const username = this.props.match.params.username;
-    this.props.fetchUserProfile(username);
+    await this.props.fetchUserProfile(username);
+    this.props.fetchPostsByUser(this.props.profile.userProfile._id);
     // this.props.fetchPostsByUser(this.props.profile.userProfile._id);
   }
 
@@ -46,4 +50,6 @@ const mapStateToProps = state => ({
   profile: state.userProfile
 });
 
-export default connect(mapStateToProps, { fetchUserProfile })(UserProfile);
+export default connect(mapStateToProps, { fetchUserProfile, fetchPostsByUser })(
+  UserProfile
+);

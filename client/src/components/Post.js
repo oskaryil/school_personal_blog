@@ -19,7 +19,7 @@ export default class Post extends Component {
           </p>
           <div className="post-footer">
             <p className="post-author">
-              Inlägg av <span className="bold">{author}</span>
+              Inlägg av <span className="bold">{author.name}</span>
             </p>
             <p className="post-date">
               den {moment(date).format("lll")}
