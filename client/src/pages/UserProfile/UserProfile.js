@@ -22,6 +22,7 @@ class UserProfile extends Component {
 
   render() {
     const { userProfile } = this.props.profile;
+    const { posts } = this.props.profile;
     return (
       <ContentContainer loading={this.props.profile.fetching}>
         <div className="user-profile">
@@ -39,7 +40,7 @@ class UserProfile extends Component {
             </div>
           </div>
         </div>
-        {/* <PostsList posts={} /> */}
+        <PostsList posts={posts} />
       </ContentContainer>
     );
   }

@@ -1,29 +1,37 @@
-@charset "UTF-8";
 .App {
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px; }
+  height: 80px;
+}
 
 .App-header {
   background-color: #222;
   min-height: 150px;
   color: white;
-  padding: 2rem; }
+  padding: 2rem;
+}
 
 .App-intro {
-  font-size: large; }
+  font-size: large;
+}
 
 .App-content {
-  margin-top: 2rem; }
+  margin-top: 2rem;
+}
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   to {
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
 
 .bold  {
-  font-weight: bold; }
+  font-weight: bold;
+}

@@ -5,7 +5,7 @@ const PostsList = props => {
   return (
     <ul>
       {posts.map(post =>
-        <li>
+        <li key={post._id}>
           {post.title}
         </li>
       )}

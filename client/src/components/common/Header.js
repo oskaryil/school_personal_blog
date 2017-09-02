@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = props =>
-  <div className="App-header row">
+  <div className="App-header">
     <div className="row">
       <div className="col-sm-12 col-xs-12">
         {props.user
@@ -15,7 +15,8 @@ const Header = props =>
     </div>
     <div className="row">
       <div className="col-xs-12 col-sm-12">
-        <h1 className="text-center text-bold">Oskars blogg</h1>
+        <h1 className="text-center text-bold">Oskar Yildiz</h1>
+        <h2 className="text-center text-bold">Blog</h2>
       </div>
     </div>
   </div>;
