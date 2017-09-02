@@ -11,7 +11,7 @@ class ContentContainer extends Component {
     return (
       <div>
         <Header user={this.props.auth.user} />
-        <div className="App-content">
+        <div className="App-content container">
           {this.props.children}
         </div>
       </div>

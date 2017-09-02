@@ -41,7 +41,8 @@ UserSchema.methods.toJSON = function() {
     _id: this._id,
     name: this.name,
     profileImg: this.profileImg,
-    username: this.username
+    username: this.username,
+    posts: this.posts
   };
 };
 

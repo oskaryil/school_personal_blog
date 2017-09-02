@@ -45,8 +45,22 @@ const login = async (req, res) => {
   }
 };
 
+const getUserByUsername = async (req, res) => {
+  const data = _.pick(req.params, ["username"]);
+  try {
+    const user = await User.findOne({ username: data.username });
+    if (!user) {
+      throw new Error("No user found");
+    }
+    return res.status(200).send({ success: true, user });
+  } catch (err) {
+    res.status(400).send({ success: false, error: err.message });
+  }
+};
+
 module.exports = {
   validation,
   signup,
-  login
+  login,
+  getUserByUsername
 };
