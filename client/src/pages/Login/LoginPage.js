@@ -5,8 +5,12 @@ import LoginForm from "./components/LoginForm";
 import { loginUser } from "./redux/actions/authActions";
 
 class LoginPage extends Component {
-  onLogin(values) {
-    this.props.loginUser(values.username, values.password);
+  async onLogin(values) {
+    try {
+      await this.props.loginUser(values.username, values.password);
+      const { router } = this.context;
+      router.transitionTo("/admin");
+    } catch (err) {}
   }
 
   render() {
